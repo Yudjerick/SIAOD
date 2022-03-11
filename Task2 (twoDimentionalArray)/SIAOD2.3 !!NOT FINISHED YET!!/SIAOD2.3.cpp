@@ -38,11 +38,24 @@ void Trianglize(vector<vector<float>> &arr)
 
 void GetX(vector<vector<float>> &arr) 
 {
-	vector < float > x;
-	for (int i = arr.size() - 1; i >= 0; i--) 
+	int n = arr.size();
+	int m = arr[0].size();
+	vector <float> x;
+	for (int i = 0; i < n; i++) 
 	{
-		// calculate sum to minus
-		x.push_back(arr[i][arr[i].size() - 1]);
+		x.push_back(0);
+	}
+	for (int i = n-1; i >= 0; i--) // обратный ход
+	{
+		float d = 0;
+		
+		for (int j = 0; j < n; j++)
+		{
+			d += x[j] * arr[i][j];
+		}
+
+		x[i] = arr[i][m - 1] - d;
+		cout << x[i] << " ";
 	}
 }
 
@@ -91,11 +104,13 @@ void PrintMatrix(vector<vector<float>> arr)
 int main()
 {
 	vector<vector<float>> arr;
-	InputMatrix(arr, 3, 4);
+	InputMatrix(arr, 2, 3);
 	cout << "Matrix:";
 	PrintMatrix(arr);
 	Trianglize(arr);
 	cout << "Tian:";
 	PrintMatrix(arr);
+	GetX(arr);
+
 }
 
