@@ -38,23 +38,20 @@ void Trianglize(vector<vector<float>> &arr)
 
 void GetX(vector<vector<float>> &arr) 
 {
-	int n = arr.size();
-	int m = arr[0].size();
-	vector <float> x;
-	for (int i = 0; i < n; i++) 
+	vector < float > x;
+	for (int i = 0; i < arr.size(); i++)
 	{
 		x.push_back(0);
 	}
-	for (int i = n-1; i >= 0; i--) // обратный ход
+	for (int i = arr.size() - 1; i >= 0; i--) 
 	{
 		float d = 0;
-		
-		for (int j = 0; j < n; j++)
+		for (int j = 0; j < arr[i].size() - 1; j++)
 		{
 			d += x[j] * arr[i][j];
 		}
-
-		x[i] = arr[i][m - 1] - d;
+		//x[i] = ((arr[i][arr[i].size() - 1]-d)/arr[i][i]);
+		x[i] = ((arr[i][arr[i].size() - 1]-d));
 		cout << x[i] << " ";
 	}
 }
@@ -103,14 +100,22 @@ void PrintMatrix(vector<vector<float>> arr)
 
 int main()
 {
+	cout << "Enter number of variables: ";
+	int v;
+	cin >> v;
+	cout << "Enter number of equations: ";
+	int e;
+	cin >> e;
+	cout << "Enter matrix of system: ";
 	vector<vector<float>> arr;
-	InputMatrix(arr, 2, 3);
+	InputMatrix(arr, e, v+1);
 	cout << "Matrix:";
 	PrintMatrix(arr);
 	Trianglize(arr);
-	cout << "Tian:";
+	cout << "Triangle matrix:";
 	PrintMatrix(arr);
+	cout << "roots: ";
 	GetX(arr);
-
+	
 }
 
