@@ -29,10 +29,19 @@ char** AddWord(char** arr, int &size, char* word)
     return arr;
 }
 
-//Не работаект с вектором, может использовать просто двумерный массив???????
-char** Words(char* str)
+bool Compare(char* A, char* B) 
 {
-    char** arr;
+    int i = 0;
+    while (true)
+    {
+        
+        
+    }
+}
+
+//Не работаект с вектором, может использовать просто двумерный массив???????
+void Words(char* str)
+{
     char word[100] = "";
     for (int i = 0; i < strlen(str); i++) 
     {
@@ -40,7 +49,6 @@ char** Words(char* str)
         {
             cout << word << endl;
             word[0] = '\0';
-            //arr.push_back(word);
         }
         else
         {
@@ -49,16 +57,17 @@ char** Words(char* str)
     }
     cout << word << endl;
     word[0] = '\0';
-    return arr;
 }
 
 int main()
 {
-    char A[100] = "";
-    char B[100] = "";
+    char A[100] = "aaaa bbbb cccc";
+    char B[100] = "eeeee dddddd";
 
-    cin.getline(A, 100);
-    cin.getline(B, 100);
+    Words(A);
+
+    //cin.getline(A, 100);
+    //cin.getline(B, 100);
 
     
     //Unit(A, B);
