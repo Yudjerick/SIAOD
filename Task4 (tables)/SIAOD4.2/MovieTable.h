@@ -25,8 +25,7 @@ struct Movie
 
 struct Table
 {
-    Movie strings[100];
-    int max;
+    Movie* strings = nullptr;
     int n;
 };
 #endif

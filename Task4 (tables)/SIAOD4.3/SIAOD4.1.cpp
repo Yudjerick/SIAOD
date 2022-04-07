@@ -62,24 +62,16 @@ Movie MakeMovie() {
 
 void AddMovie(Movie m, Table& t)
 {
-    if (t.n == t.max) {
-        cout << "cannot add more, table is full" << endl;
-        return;
-    }
     for (int i = 0; i < t.n; i++)
     {
         if (t.strings[i].theatre == m.theatre)
         {
-            for (int j = t.n; j > i; j--)
-            {
-                t.strings[j] = t.strings[j - 1];
-            }
-            t.strings[i] = m;
+            t.strings.insert(t.strings.begin() + i, m);
             t.n++;
             return;
         }
     }
-    t.strings[t.n] = m;
+    t.strings.push_back(m);
     t.n++;
 }
 
@@ -87,17 +79,9 @@ Table EmptyTable()
 {
     Table t;
     t.n = 0;
-    t.max = 100;
     return t;
 }
 
-void DeleteStr(Table &t, int pos)
-{
-    for (int i = pos; i < t.n - 1; i++) {
-        t.strings[i] = t.strings[i + 1];
-    }
-    t.n--;
-}
 
 void ClearDate(Table &t)
 {
@@ -106,8 +90,9 @@ void ClearDate(Table &t)
     int month;
     cin >> day >> month;
     for (int i = 0; i < t.n; i++) {
-        while(t.strings[i].date.day == day && t.strings[i].date.month == month && i < t.n) {
-            DeleteStr(t, i);
+        while(i < t.n && t.strings[i].date.day == day && t.strings[i].date.month == month) {
+            t.n--;
+            t.strings.erase(t.strings.begin() + i);
         }
     }
 }

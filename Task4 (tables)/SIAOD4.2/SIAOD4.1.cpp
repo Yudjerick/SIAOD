@@ -60,43 +60,74 @@ Movie MakeMovie() {
     return m;
 }
 
+/*void CopyArr(Movie* from, Movie*& to, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        to[i] = from[n];
+    }
+}*/
+
+Movie* Insert(Movie* arr, int pos, Movie element, int &n)
+{
+    n++;
+    Movie* arr2 = new Movie[n];
+    for (int i = 0; i < n - 1; i++)
+    {
+        arr2[i] = arr[i];
+    }
+    delete[] arr;
+    for (int i = n - 1; i > pos; i--)
+    {
+        arr2[i] = arr2[i - 1];
+    }
+    arr2[pos] = element;
+    return arr2;
+}
+
 void AddMovie(Movie m, Table& t)
 {
-    if (t.n == t.max) {
-        cout << "cannot add more, table is full" << endl;
-        return;
-    }
     for (int i = 0; i < t.n; i++)
     {
         if (t.strings[i].theatre == m.theatre)
         {
-            for (int j = t.n; j > i; j--)
-            {
-                t.strings[j] = t.strings[j - 1];
-            }
-            t.strings[i] = m;
-            t.n++;
+            t.strings = Insert(t.strings, i, m, t.n);
             return;
         }
     }
-    t.strings[t.n] = m;
-    t.n++;
+    t.strings = Insert(t.strings, t.n, m, t.n);
 }
 
 Table EmptyTable()
 {
     Table t;
     t.n = 0;
-    t.max = 100;
+    //t.max = 100;
     return t;
 }
 
-void DeleteStr(Table &t, int pos)
+/*void DeleteStr(Table& t, int pos)
 {
     for (int i = pos; i < t.n - 1; i++) {
         t.strings[i] = t.strings[i + 1];
     }
     t.n--;
+}*/
+
+Movie* Erase(Movie* arr, int pos, int &n)
+{
+    for (int i = pos; i < n - 1; i++)
+    {
+        arr[i] = arr[i + 1];
+    }
+    n--;
+    Movie* arr2 = new Movie[n];
+    for (int i = 0; i < n; i++)
+    {
+        arr2[i] = arr[i];
+    }
+    delete[] arr;
+    return arr2;
 }
 
 void ClearDate(Table &t)
@@ -106,8 +137,8 @@ void ClearDate(Table &t)
     int month;
     cin >> day >> month;
     for (int i = 0; i < t.n; i++) {
-        while(t.strings[i].date.day == day && t.strings[i].date.month == month && i < t.n) {
-            DeleteStr(t, i);
+        while(i < t.n && t.strings[i].date.day == day && t.strings[i].date.month == month) {
+            t.strings = Erase(t.strings, i, t.n);
         }
     }
 }
@@ -135,6 +166,8 @@ int main()
     Movie backToF3 = { "retro", "BackToTheFuture2", {3,5}, {17,40} ,250 };
     Movie backToF4 = { "retro", "BackToTheFuture3", {5,4}, {17,30} ,250 };
     Table afisha = EmptyTable();
+
+    
     AddMovie(backToF, afisha);
     AddMovie(pirates, afisha);
     AddMovie(alladin, afisha);
@@ -143,6 +176,7 @@ int main()
     AddMovie(backToF4, afisha);
  
     Print(afisha);
+
     ClearDate(afisha);
     Print(afisha);
     WhereWatch(afisha);

@@ -1,5 +1,6 @@
 #ifndef __MovieTable__
 #define __MovieTable__
+#include <vector>
 using namespace std;
 
 struct Date
@@ -25,8 +26,7 @@ struct Movie
 
 struct Table
 {
-    Movie strings[100];
-    int max;
+    vector<Movie> strings;
     int n;
 };
 #endif
