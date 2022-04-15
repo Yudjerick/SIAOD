@@ -149,7 +149,7 @@ void WhereWatch(Table t) {
     cin >> filmName;
     for (int i = 0; i < t.n; i++) {
         if (t.strings[i].film == filmName) {
-            cout << t.strings[i].theatre;
+            cout << t.strings[i].theatre << endl;
         }
     }
 }
@@ -169,6 +169,8 @@ int main()
 
     
     AddMovie(backToF, afisha);
+    AddMovie({ "retro","Alladin", {2,6}, noon, 300 }, afisha);
+    AddMovie({ "cinemaX","Alladin", {7,5}, noon, 300 }, afisha);
     AddMovie(pirates, afisha);
     AddMovie(alladin, afisha);
     AddMovie(backToF2, afisha);

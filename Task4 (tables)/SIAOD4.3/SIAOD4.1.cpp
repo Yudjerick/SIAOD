@@ -103,7 +103,7 @@ void WhereWatch(Table t) {
     cin >> filmName;
     for (int i = 0; i < t.n; i++) {
         if (t.strings[i].film == filmName) {
-            cout << t.strings[i].theatre;
+            cout << t.strings[i].theatre << endl;
         }
     }
 }
