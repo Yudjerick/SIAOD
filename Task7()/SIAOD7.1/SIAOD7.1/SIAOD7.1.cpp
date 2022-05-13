@@ -3,6 +3,8 @@
 using namespace std;
 
 int Priority(char c) {
+	if (c == '^')
+		return 3;
 	if (c == '+' || c == '-')
 		return 1;
 	if (c == '*' || c == '/')
@@ -13,7 +15,7 @@ int Priority(char c) {
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	string original = "a-(c-h)/(b*c)";
+	string original = "z^(y+x)/m/n*(k-p)";
 	cout << "original: " << original;
 	string result = "";
 	stack<char> st;
