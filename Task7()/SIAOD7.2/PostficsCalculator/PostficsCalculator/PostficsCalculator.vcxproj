@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c9ed4688-120a-4333-b63e-cb545e36f80e}</ProjectGuid>
-    <RootNamespace>SIAOD71</RootNamespace>
+    <ProjectGuid>{081ddf7b-ad39-46a0-a368-ca41084f23ca}</ProjectGuid>
+    <RootNamespace>PostficsCalculator</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SIAOD7.1.cpp" />
+    <ClCompile Include="PostficsCalculator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
