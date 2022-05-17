@@ -7,13 +7,15 @@ int Priority(char c) {
 		return 1;
 	if (c == '*' || c == '/')
 		return 2;
+	if (c == '^')
+		return 3;
 	return 0;
 }
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	string original = "a-(c-h)/(b*c)";
+	string original = "(a+b^b)^c";
 	cout << "original: " << original;
 	string result = "";
 	stack<char> st;
