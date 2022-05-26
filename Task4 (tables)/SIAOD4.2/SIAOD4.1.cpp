@@ -60,14 +60,6 @@ Movie MakeMovie() {
     return m;
 }
 
-/*void CopyArr(Movie* from, Movie*& to, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        to[i] = from[n];
-    }
-}*/
-
 Movie* Insert(Movie* arr, int pos, Movie element, int &n)
 {
     n++;

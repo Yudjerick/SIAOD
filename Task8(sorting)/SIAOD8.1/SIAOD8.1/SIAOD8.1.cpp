@@ -108,9 +108,6 @@ void NaturalMergeSort(vector<int>& a) {
             }
         }
         a = Merge(b, c);
-        //for (int i = 1; i < a.size(); i++)
-        //    cout << a[i] << " ";
-        //cout << endl;
         bool flag = true;
         for (int i = 1; i < a.size(); i++) {
             if (a[i] < a[i - 1]) {
@@ -151,7 +148,6 @@ void ArrRandom(vector<int>& a, int n)
 
 int main()
 {
-    //vector<int> a = {1,4,2,3,7,10,5,6,3,11,55,23,24,67,2,6,9,23,67,89,11,34,56,23,67};
     vector<int> a;
     ArrRandom(a, 1000);
     vector<int> b = a;
@@ -173,7 +169,5 @@ int main()
     NaturalMergeSort(c);
     end_time = clock();
     int nmT = end_time - start_time;
-    cout << "NaturalMergeSort: "<< nmT << endl;
-   
-    
+    cout << "NaturalMergeSort: "<< nmT << endl;  
 }

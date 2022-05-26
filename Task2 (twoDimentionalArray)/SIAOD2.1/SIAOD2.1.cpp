@@ -24,8 +24,6 @@ void InputMatrixRand(char arr[][Cols], int n, int m)
 	{
 		for (int j = 0; j < m; j++)
 		{
-			// arr[i][j] = rand() % 2 == 0 ? '0' : 'x';  //для заполнения X и 0
-
 			char el;
 			int z = (int)rand() % 3;
 			switch(z)
@@ -108,12 +106,10 @@ bool Won(char arr[][Cols], int n, int m)
 	for (int i = 0; i < max(n, m) * 2; i++)
 	{
 		int diagonal = 0;
-		//cout << endl;
 		for (int j = 0; j <= i; j++)
 		{
 			if (i - j < n && j < m)
 			{
-				//cout << arr[i-j][j] << " ";
 				if (arr[i - j][j] == 'x')
 				{
 					diagonal++;
@@ -137,7 +133,6 @@ bool Won(char arr[][Cols], int n, int m)
 		{
 			if (i - j < n && j < m)
 			{
-				//cout << arr[i-j][m-j-1] << " ";
 				if (arr[i - j][m - j - 1] == 'x')
 				{
 					diagonal++;

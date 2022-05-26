@@ -25,8 +25,8 @@ double Cos(double x, double e) {
 
 int main()
 {
-	cout << Cos(M_PI, 0.001) << endl;
-	cout << Cos(M_PI / 2, 0.001) << endl;
-	cout << Cos(0, 0.001) << endl;
-	cout << Cos(2, 0.001) << endl;
+	cout << "cos(Pi): " << Cos(M_PI, 0.001) << endl;
+	cout << "cos(Pi/2): " << Cos(M_PI / 2, 0.001) << endl;
+	cout << "cos(0): " << Cos(0, 0.001) << endl;
+	cout << "cos(2): "<< Cos(2, 0.001) << endl;
 }

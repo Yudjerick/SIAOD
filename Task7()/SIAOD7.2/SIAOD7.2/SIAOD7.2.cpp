@@ -97,5 +97,5 @@ int CalculatePostfix(string p) {
 
 int main()
 {
-    cout << CalculatePostfix("6 2 2 ^ + 3 ^");
+    cout << "postfix: 6 2 2 ^ + 3 ^" << endl << "result: " << CalculatePostfix("6 2 2 ^ + 3 ^");
 }

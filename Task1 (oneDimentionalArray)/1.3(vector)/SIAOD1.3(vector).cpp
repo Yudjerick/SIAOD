@@ -84,11 +84,12 @@ void Delete3(vector<int>& arr)
 	{
 		while (Devided3(arr[i]))
 		{
+			arr.erase(arr.begin() + i);
 			if (i >= arr.size())
 			{
 				return;
 			}
-			arr.erase(arr.begin() + i);
+			
 		}
 	}
 }
@@ -99,6 +100,7 @@ int main()
 	Input(arr);
 
 	int idx = FindIndex(arr);
+	
 	if (idx == -1)
 	{
 		cout << "No elements found";

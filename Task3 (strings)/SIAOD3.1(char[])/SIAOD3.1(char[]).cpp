@@ -21,14 +21,6 @@ void AddChar(char* A, char B)
     A[alen] = B;
 }
 
-
-/*char** AddWord(char** arr, int& size, char* word)
-{
-    arr = new char* [size + 1];
-    arr[size] = word;
-    return arr;
-}*/
-
 //проверяет одинаковы ли строки
 bool Compare(char* A, char* B)
 {
@@ -107,12 +99,11 @@ void Words(char* str, char* str2)
 
 int main()
 {
-    char A[100] = "aaaa bbbb cccc";
-    char B[100] = "eeeee  aaaa dddddd";
+    char A[100] = "";
+    char B[100] = "";
 
     cin.getline(A, 100);
     cin.getline(B, 100);
     Words(A, B);
-
 }
 

@@ -70,8 +70,6 @@ vector<string> FindSame(string A, string B)
     return r;
 }
 
-
-
 int main()
 {
     string A = "This is e first phrase";
@@ -92,5 +90,4 @@ int main()
     {
         cout << "No same words";
     }
-
 }
