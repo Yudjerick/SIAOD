@@ -53,7 +53,43 @@ void Replace(string& ori, string old, string nstr) {
 	ori.replace(MoorSearch(ori, old), old.length(), nstr);
 }
 
+string Modify(string ori) 
+{
+	for (int i = 0; i < ori.length(); i++) 
+	{
+		if (ori[i] == 'У' || ori[i] == 'К' || ori[i] == 'Е' || ori[i] == 'Н' || ori[i] == 'Х'
+			|| ori[i] == 'В' || ori[i] == 'А' || ori[i] == 'Р' || ori[i] == 'О'
+			|| ori[i] == 'С' || ori[i] == 'М' || ori[i] == 'Т') 
+		{
+			ori[i] = 'У';
+		}
+		if ((int)ori[i] > 48 && (int)ori[i] < 58)
+		{
+			ori[i] = '1';
+		}
+	}
+	return ori;
+}
+
 int main()
 {
-	string data = "char symbol = 'j'; int a = 1; cin >> a; int b; cin >> b; cout << a + b; float number;";
+	setlocale(LC_ALL, "Russian");
+	string data = ": БМВ Х3 В123АУ777 черн. Е83 2.0d";
+	int search3 = MoorSearch(Modify(data), "У111УУ111");
+	if (search3 != -1) 
+	{
+		for (int i = search3; i < search3 + 9; i++)
+		{
+			cout << data[i];
+		}
+		return;
+	}
+	int search2 = MoorSearch(Modify(data), "У111УУ11");
+	if (search2 != -1)
+	{
+		for (int i = search2; i < search2 + 8; i++)
+		{
+			cout << data[i];
+		}
+	}
 }
