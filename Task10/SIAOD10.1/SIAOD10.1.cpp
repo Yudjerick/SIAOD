@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+//Task 10 part 1 od SIAOD
+
 int Offset(string sub, char c)
 {
 	for (int i = sub.length() - 2; i >= 0; i--)

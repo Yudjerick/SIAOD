@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+//Task 9 of SIAOD
 struct CityInfo
 {
     int key;
